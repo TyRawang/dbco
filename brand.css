@@ -1,0 +1,211 @@
+/* Deboski & Co. brand layer, loaded after the template stylesheet */
+
+:root {
+  --brand-tan: #cda786;
+  --brand-charcoal: #282b2b;
+  --brand-cream: #fbf8f4;
+  --base-color--green-950: #242727;
+  --base-color--green-900: #2d3030;
+  --base-color--green-800: #594a40;
+  --base-color--green-200: #e4cfbc;
+  --base-color--green-100: #f0e3d6;
+  --base-color--green-50: #f7efe7;
+  --base-color--neutral-100: #f7f5f2;
+  --base-color--neutral-200: #ddd6cf;
+  --base-color--neutral-300: #c2b7ae;
+  --base-color--neutral-600: #565553;
+  --overlay-color--shade-30: #2023234d;
+  --overlay-color--shade-45: #20232373;
+  --overlay-color--shade-50: #20232380;
+  --overlay-color--shade-55: #2023238c;
+  --overlay-color--shade-60: #20232399;
+  --overlay-color--shade-72: #202323b8;
+  --overlay-color--shade-82: #202323d1;
+  --system-color--focus-state: #775337;
+}
+
+/* Navigation */
+.nav_logo-light, .nav_logo-dark, .nav_drawer-logo {
+  max-width: 160px;
+  height: auto;
+}
+
+/* light hover colour only for the nav that sits over a photo (Home and service pages) */
+.nav_component:not([data-wf--navbar--variant="solid"]) .nav_link:hover {
+  color: var(--base-color--green-100);
+}
+
+button.nav_menu-button, button.nav_drawer-close {
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+
+/* Heroes */
+/* Rockies hero: the peak sits upper right, so narrow (phone) crops keep it in view */
+.home-hero_image {
+  object-position: 70% 40%;
+  filter: brightness(1.18);
+}
+
+/* the service photos have faces in their upper third: keep them in the wide, short hero crop */
+.service-hero_image {
+  object-position: 50% 22%;
+}
+
+.home-hero_shade,
+.service-hero_shade {
+  background-image: linear-gradient(90deg, #1c2022e8, #2024269c 49%, #20242614 100%),
+    linear-gradient(180deg, #1c202270 0%, transparent 31%, #1c202283 100%);
+}
+
+.home-hero_wordmark, .footer_wordmark {
+  font-size: clamp(2.25rem, 11.2vw, 10rem);
+  line-height: .86;
+}
+
+.footer_wordmark {
+  color: var(--brand-tan);
+}
+
+.preloader_mark {
+  font-size: clamp(2.65rem, 7.5vw, 6.75rem);
+}
+
+/* Buttons */
+.button.is-brand {
+  background-color: var(--brand-tan);
+  border-color: var(--brand-tan);
+  color: var(--brand-charcoal);
+}
+
+.button.is-brand .button_icon {
+  filter: brightness(0);
+}
+
+.button.is-brand:hover {
+  background-color: var(--base-color--green-100);
+  border-color: var(--base-color--green-100);
+}
+
+/* Cards and images */
+.section_home-evidence .case-card_text {
+  max-width: 38ch;
+}
+
+.person-card_image, .partner-head_image {
+  object-position: center 32%;
+}
+
+.approach_image.is-brand-collage {
+  object-fit: contain;
+  background: var(--brand-cream);
+}
+
+.page-image_wrap.is-collage {
+  aspect-ratio: 2.1;
+  background-color: var(--brand-cream);
+}
+
+.page-image_wrap.is-collage .page-image_image {
+  object-fit: contain;
+  padding: 1rem;
+}
+
+/* Contact page office bands: keep each city's landmark in the wide crop */
+.office_image.is-edmonton { object-position: 55% 52%; } /* Walterdale Bridge and towers */
+.office_image.is-calgary { object-position: 50% 42%; }  /* Calgary Tower and downtown */
+
+/* phone links sit on the dark photo bands: the template colours them charcoal, which made them invisible */
+.ledger-list_value.is-light .contact_link { color: var(--base-color--neutral-0); }
+.ledger-list_value.is-light .contact_link:hover { color: var(--base-color--green-100); }
+
+/* Long-form copy */
+.deboski-copy {
+  max-width: 75ch;
+}
+
+.deboski-copy > * + * {
+  margin-top: 1rem;
+}
+
+.deboski-copy > h2 {
+  margin-top: 2.1rem;
+}
+
+.deboski-intro {
+  padding: 0 1.75rem 1.7rem;
+  max-width: 77ch;
+}
+
+.deboski-service-end {
+  margin-top: 2.5rem;
+}
+
+.deboski-card-link {
+  margin-top: 1.1rem;
+}
+
+.deboski-link-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem 1.3rem;
+}
+
+/* Services deck */
+.deck_tabs {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+button.deck_tab, button.deck_arrow, button.deck_play {
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+button.deck_tab {
+  text-align: left;
+}
+
+button.deck_tab:focus-visible, button.deck_arrow:focus-visible, button.deck_play:focus-visible {
+  outline: 2px solid var(--system-color--focus-state);
+  outline-offset: 2px;
+}
+
+.deck_card-big {
+  overflow-wrap: anywhere;
+}
+
+.deb-note-end { white-space: nowrap; }
+
+/* Tablet and below */
+@media (max-width: 991px) {
+  .home-hero_shade, .service-hero_shade {
+    background-image: linear-gradient(90deg, #1c2022ee, #20242670),
+      linear-gradient(180deg, #1c202270, transparent 33%, #1c20228a);
+  }
+  .deck_card.is-selected-note { display: flex; }
+  .deck_term { text-underline-offset: .17em; }
+}
+
+/* Phones */
+@media (max-width: 767px) {
+  .nav_logo-light, .nav_logo-dark, .nav_drawer-logo { max-width: 139px; }
+  .home-hero_wordmark, .footer_wordmark { font-size: clamp(2rem, 11.5vw, 5rem); }
+  .deboski-intro { padding-inline: 0; }
+  .page-image_wrap.is-collage { aspect-ratio: 1.25; }
+}
+
+/* Print: the scroll reveals hide content until it is scrolled to, so show everything on paper */
+@media print {
+  .preloader, .nav_scrim, .nav_drawer, .nav_menu-button, .skip-link, .grid-lines { display: none !important; }
+  .main-wrapper *, .footer_component * {
+    opacity: 1 !important;
+    visibility: visible !important;
+    clip-path: none !important;
+    transform: none !important;
+  }
+  /* the services deck stacks its slides and term notes in one cell each: print them one after another */
+  .deck_slide, .deck_card { grid-area: auto !important; margin-bottom: 1.5rem; }
+  .deck_arrow, .deck_play { display: none !important; }
+}
